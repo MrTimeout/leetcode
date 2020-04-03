@@ -86,7 +86,11 @@ public class Solution {
     private static final Random random = new Random();
 
     public static TreeNode getTreeNode(int amountOfNodes) {
-      
+			if (amountOfNodes <= 0) throw new IllegalArgumentException("amount of nodes to create must be positive and not 0");
+			TreeNode treeNode;
+      for (int i = 0; i < amountOfNodes; i++) {
+				
+      }
     }
 
   }
