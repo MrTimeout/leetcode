@@ -51,7 +51,7 @@ public class SwapNodesPairs {
     }
 
     static ListNode solve(ListNode head) {
-        if (head == null || head.next() == null) return null;
+        if (head == null || head.next() == null) return head;
         ListNode post = solve(head.next().next());
         ListNode res = head.next();
         res.setNext(head);
