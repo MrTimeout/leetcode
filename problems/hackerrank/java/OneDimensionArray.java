@@ -6,15 +6,15 @@ public class OneDimensionArray {
 	
 	private static final Scanner s = new Scanner(System.in);
 
+	private static boolean canWinRecur(int leap, int[] game, int i) {
+		if (i < 0 || game[i] == 1) return false;
+		if (i == game.length - 1 || i + leap > game.length - 1) return true;
+		game[i] = 1; // This is uesd to not enter in an endessly loop
+	  return canWinRecur(leap, game, i+1) || canWinRecur(leap, game, i-1) || canWinRecur(leap, game, i+leap);
+	}
+
 	private static boolean canWin(int leap, int[] game) {
-		int cont = 0;
-		while (cont < game.length - 1) {
-			if (cont + leap > game.length-1) break;
-			else if (game[cont + leap] == 0) cont += leap;
-			else if (game[cont + 1] == 0) cont++;
-			else return false;
-		}
-		return true;
+		return canWinRecur(leap, game, 0);
 	}
 
 	public static void main(final String... args) {
